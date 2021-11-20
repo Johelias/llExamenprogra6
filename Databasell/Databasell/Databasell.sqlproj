@@ -67,6 +67,9 @@
     <Build Include="Schema\exp.sql" />
     <Build Include="dbo\Tables\Orden.sql" />
     <Build Include="dbo\Tables\Producto.sql" />
+    <Build Include="exp\StoreProcedures\Eliminar.sql" />
     <Build Include="exp\StoreProcedures\Actualizar.sql" />
+    <Build Include="exp\StoreProcedures\Insertar.sql" />
+    <Build Include="exp\StoreProcedures\Obtener.sql" />
   </ItemGroup>
 </Project>
