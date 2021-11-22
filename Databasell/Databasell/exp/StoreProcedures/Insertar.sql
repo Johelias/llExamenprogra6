@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Insertar]
+﻿CREATE PROCEDURE [exp].[Insertar]
 	@NombreProducto varchar(50),
 	@PrecioProducto int 
 	

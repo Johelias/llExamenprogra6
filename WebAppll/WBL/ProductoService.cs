@@ -112,9 +112,19 @@ namespace WBL
             }
         }
 
-        public Task<IEnumerable<ProductoEntity>> GetLista()
+        public async Task<IEnumerable<ProductoEntity>> GetLista()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = sql.QueryAsync<ProductoEntity>("ProductoLista");
+
+                return await result;
+            }
+            catch (Exception EX)
+            {
+
+                throw;
+            }
         }
 
         public async Task<BDEntity> Update(ProductoEntity entity)

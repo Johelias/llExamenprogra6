@@ -1,4 +1,6 @@
-﻿using Entity;
+﻿using Dapper;
+using Dapper.Mapper;
+using Entity;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;

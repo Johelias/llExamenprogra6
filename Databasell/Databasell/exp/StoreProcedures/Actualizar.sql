@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [DBO].[Actualizar]
+﻿CREATE PROCEDURE [exp].[Actualizar]
     @IdProducto int,
 	@NombreProducto varchar(50),
 	@PrecioProducto int

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Eliminar]
+﻿CREATE PROCEDURE [exp].[Eliminar]
  @IdProducto int
 
 

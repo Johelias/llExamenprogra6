@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Obtener]
+﻿CREATE PROCEDURE [exp].[Obtener]
 	  @IdProducto int= NULL
 AS BEGIN
   SET NOCOUNT ON

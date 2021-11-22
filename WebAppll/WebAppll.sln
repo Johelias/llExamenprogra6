@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppll", "WebAppll\WebAppll.csproj", "{0C7C6D3F-EC01-4266-8052-3120335D864F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppll", "WebAppll\WebAppll.csproj", "{0C7C6D3F-EC01-4266-8052-3120335D864F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BD", "BD\BD.csproj", "{D241AF06-BE32-4709-9AF8-A7B02C29924B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BD", "BD\BD.csproj", "{D241AF06-BE32-4709-9AF8-A7B02C29924B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{E05D9C93-ECF5-4524-8EEC-4ED6D037C86B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{E05D9C93-ECF5-4524-8EEC-4ED6D037C86B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WBL", "WBL\WBL.csproj", "{65268674-0F44-4DE0-9074-3F38A1A2F4B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WBL", "WBL\WBL.csproj", "{65268674-0F44-4DE0-9074-3F38A1A2F4B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
