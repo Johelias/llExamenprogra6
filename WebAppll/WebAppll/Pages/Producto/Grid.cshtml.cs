@@ -21,7 +21,7 @@ namespace WebAppll.Pages.Producto
 
         public IEnumerable<ProductoEntity> GridList { get; set; } = new List<ProductoEntity>();
 
-        public string Mensaje { get; set; } = "";
+       
         public async Task<IActionResult> OnGet()
         {
 
@@ -29,12 +29,6 @@ namespace WebAppll.Pages.Producto
             {
                 GridList = await productoService.Get();
 
-                if (TempData.ContainsKey("Msg"))
-                {
-                    Mensaje = TempData["Msg"] as string;
-                }
-
-                TempData.Clear();
 
                 return Page();
 
@@ -47,28 +41,21 @@ namespace WebAppll.Pages.Producto
 
         }
 
-        public async Task<IActionResult> OnGetEliminar(int id)
+        public async Task<IActionResult> OnDeleteEliminar(int id)
         {
 
             try
             {
                 var result = await productoService.Delete(new() { IdProducto = id });
 
-                if (result.CodeError != 0)
-                {
-                    throw new Exception(result.MsgError);
-                }
-
-                TempData["Msg"] = "Se elimino correctamente";
-
-                return Redirect("Grid");
+                return new JsonResult(result);
 
 
             }
             catch (Exception ex)
             {
 
-                return Content(ex.Message);
+                return new JsonResult(new BDEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
 
         }

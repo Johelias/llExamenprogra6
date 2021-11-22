@@ -12,45 +12,37 @@ namespace WebAppll.Pages.Producto
 
     public class EditModel : PageModel
     {
+
         private readonly IProductoService productoService;
-        
+      
         public EditModel(IProductoService productoService)
         {
             this.productoService = productoService;
-       
+          
         }
 
         [BindProperty]
+        [FromBody]
+
         public ProductoEntity Entity { get; set; } = new ProductoEntity();
-     
+
+        public IEnumerable<ProductoEntity> ProductoLista { get; set; } = new List<ProductoEntity>();
 
         [BindProperty(SupportsGet = true)]
         public int? id { get; set; }
 
-
-       
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnGet()
         {
-
             try
             {
-                //Metodo Actualizar
-                if (Entity.IdProducto.HasValue)
+                if (id.HasValue)
                 {
-                    var result = await productoService.Update(Entity);
-
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se ha actualizado";
-                }
-                else
-                {
-                    var result = await productoService.Create(Entity);
-
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se ha insertado";
+                    Entity = await productoService.GetById(new() { IdProducto = id });
                 }
 
-                return RedirectToPage("Grid");
+                ProductoLista = await productoService.GetLista();
+
+                return Page();
             }
             catch (Exception ex)
             {
@@ -61,12 +53,34 @@ namespace WebAppll.Pages.Producto
 
         }
 
+        public async Task<IActionResult> OnPost()
+        {
+
+            try
+            {
+                var result = new BDEntity();
+                if (Entity.IdProducto.HasValue)
+                {
+                    result = await productoService.Update(Entity);
 
 
+                }
+                else
+                {
+                    result = await productoService.Create(Entity);
+
+                }
+
+                return new JsonResult(result);
+            }
+            catch (Exception ex)
+            {
+
+                return new JsonResult(new BDEntity { CodeError = ex.HResult, MsgError = ex.Message });
+            }
 
 
-
-
+        }
 
     }
 }
